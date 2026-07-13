@@ -186,19 +186,66 @@
       
 </section>
 
-<section class="hero teaser">
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <h2 class="title is-3 has-text-centered">
+          Project Pipeline
+        </h2>
+
+        <div class="content has-text-centered">
+
+<pre style="font-size:18px; line-height:1.6; text-align:left; display:inline-block;">
+Gibson Scene (.glb)
+        │
+        ▼
+Habitat Simulator
+        │
+        ▼
+Trajectory Generation
+        │
+        ├──────────────┐
+        │              │
+        ▼              ▼
+ RGB Images      Agent States (.npy)
+        │              │
+        └──────┬───────┘
+               ▼
+     FastSAM Segmentation
+               │
+               ▼
+      LightGlue Matching
+               │
+               ▼
+ Topological Object Graph (.pickle)
+               │
+               ▼
+ Simulator Depth Rendering
+               │
+               ▼
+ Topometric Object Graph (.pickle)
+               │
+               ▼
+Shortest Path Computation
+               │
+               ▼
+ WayObject Costmaps (.h5)
+               │
+               ▼
+ObjectReact Controller Training
+               │
+               ▼
+Habitat Evaluation
+</pre>
+
+        </div>
+
+      </div>
     </div>
+
   </div>
 </section>
 
