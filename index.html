@@ -348,17 +348,70 @@ Habitat Evaluation
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
+    <div class="columns is-centered">
+    <div class="column is-four-fifths">
+
+    <h2 class="title is-3 has-text-centered">
+      Workflow Overview
+    </h2>
+
+    <div class="content has-text-justified">
+
+      <p>
+        The complete workflow developed during this project consists of five major stages.
+        Each stage produces the inputs required by the next stage and together forms the
+        complete data generation and training pipeline for ObjectReact.
+      </p>
+
+      <ol>
+
+        <li>
+          <b>Environment Setup</b><br>
+          Install Habitat-Lab, Habitat-Sim and project dependencies.
+          Download the Gibson scenes and verify simulator rendering.
+        </li>
+
+        <br>
+
+        <li>
+          <b>Dataset Generation</b><br>
+          Generate trajectories inside Gibson environments and save RGB images,
+          agent states and trajectory metadata.
+        </li>
+
+        <br>
+
+        <li>
+          <b>Topometric Map Construction</b><br>
+          Segment objects using FastSAM, associate them using LightGlue,
+          integrate simulator depth and generate topometric graphs together with
+          WayObject Costmaps.
+        </li>
+
+        <br>
+
+        <li>
+          <b>Controller Training</b><br>
+          Train the original ObjectReact controller using the generated Gibson dataset
+          and monitor convergence using Weights & Biases.
+        </li>
+
+        <br>
+
+        <li>
+          <b>Controller Evaluation</b><br>
+          Evaluate the trained controller inside Habitat and visualize navigation
+          behaviour, controller predictions and WayObject Costmaps.
+        </li>
+
+      </ol>
+
     </div>
-    <!--/ Paper video. -->
+
   </div>
+</div>
+    <!--/ Paper video. -->
+</div>
 </section>
 
 
