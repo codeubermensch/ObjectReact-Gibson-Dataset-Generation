@@ -394,6 +394,266 @@ Habitat Evaluation
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">
+      Stage 2: Topological Graph Generation
+    </h2>
+
+    <div class="content has-text-justified">
+
+      <h4>Objective</h4>
+
+      <p>
+        Construct an object-centric topological graph from the RGB observations generated in Stage 1.
+        Objects are segmented using FastSAM and associated across consecutive frames using LightGlue.
+      </p>
+
+      <h4>Inputs</h4>
+
+      <ul>
+        <li>RGB images</li>
+        <li>FastSAM</li>
+        <li>LightGlue</li>
+      </ul>
+
+      <h4>Outputs</h4>
+
+      <ul>
+        <li>nodes_fast_sam_graphObject_4_lightglue.pickle</li>
+      </ul>
+
+      <h4>Purpose</h4>
+
+      <p>
+        Represents the scene as an object graph without geometric depth information.
+      </p>
+
+      <h4>Status</h4>
+
+      <p>✔ Completed successfully for Gibson environments.</p>
+
+    </div>
+
+  </div>
+</section>  
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">
+      Stage 3: Topometric Graph Generation
+    </h2>
+
+    <div class="content has-text-justified">
+
+      <h4>Objective</h4>
+
+      <p>
+        Extend the topological graph by integrating simulator-rendered depth information
+        to obtain a topometric object graph.
+      </p>
+
+      <h4>Inputs</h4>
+
+      <ul>
+        <li>Topological graph</li>
+        <li>Habitat simulator</li>
+        <li>Depth observations</li>
+      </ul>
+
+      <h4>Outputs</h4>
+
+      <ul>
+        <li>nodes_fast_sam_graphObject_4_lightglue_depth_sim.pickle</li>
+      </ul>
+
+      <h4>Purpose</h4>
+
+      <p>
+        Stores three-dimensional relationships between segmented objects.
+      </p>
+
+      <h4>Status</h4>
+
+      <p>✔ Completed successfully for Gibson environments.</p>
+
+    </div>
+
+  </div>
+</section>  
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">
+      Stage 4: WayObject Costmap Generation
+    </h2>
+
+    <div class="content has-text-justified">
+
+      <h4>Objective</h4>
+
+      <p>
+        Compute shortest path lengths over the topometric graph and encode them as
+        WayObject Costmaps for every observation.
+      </p>
+
+      <h4>Inputs</h4>
+
+      <ul>
+        <li>Topometric graph</li>
+        <li>Shortest-path computation</li>
+      </ul>
+
+      <h4>Outputs</h4>
+
+      <ul>
+        <li>gibson_gt_topometric_e3d_masks_pls.h5</li>
+      </ul>
+
+      <h4>Purpose</h4>
+
+      <p>
+        Generates the object-centric navigation representation used by the ObjectReact controller.
+      </p>
+
+      <h4>Status</h4>
+
+      <p>✔ Completed successfully for Gibson environments.</p>
+
+    </div>
+
+  </div>
+</section>  
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">
+      Stage 5: Dataset Preparation
+    </h2>
+
+    <div class="content has-text-justified">
+
+      <h4>Objective</h4>
+
+      <p>
+        Prepare the generated Gibson dataset in the format expected by the
+        ObjectReact training pipeline.
+      </p>
+
+      <h4>Outputs</h4>
+
+      <ul>
+        <li>Train/Test trajectory splits</li>
+        <li>Configuration files</li>
+        <li>HDF5 costmaps</li>
+      </ul>
+
+      <h4>Purpose</h4>
+
+      <p>
+        Organizes the generated data into a structure compatible with the original
+        ObjectReact implementation.
+      </p>
+
+      <h4>Status</h4>
+
+      <p>✔ Completed successfully.</p>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">
+      Stage 6: Controller Training
+    </h2>
+
+    <div class="content has-text-justified">
+
+      <h4>Objective</h4>
+
+      <p>
+        Train the original ObjectReact navigation controller using the generated
+        Gibson dataset and WayObject Costmaps.
+      </p>
+
+      <h4>Inputs</h4>
+
+      <ul>
+        <li>Trajectory dataset</li>
+        <li>WayObject Costmaps</li>
+        <li>Training configuration</li>
+      </ul>
+
+      <h4>Outputs</h4>
+
+      <ul>
+        <li>Trained controller checkpoints</li>
+        <li>Weights &amp; Biases logs</li>
+      </ul>
+
+      <h4>Purpose</h4>
+
+      <p>
+        Learn an action policy that predicts navigation actions from RGB observations
+        and WayObject Costmaps.
+      </p>
+
+      <h4>Status</h4>
+
+      <p>✔ Successfully trained on the generated Gibson dataset.</p>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">
+      Stage 7: Controller Evaluation
+    </h2>
+
+    <div class="content has-text-justified">
+
+      <h4>Objective</h4>
+
+      <p>
+        Evaluate the trained controller inside Habitat and analyse navigation behaviour
+        both quantitatively and qualitatively.
+      </p>
+
+      <h4>Outputs</h4>
+
+      <ul>
+        <li>Navigation trajectories</li>
+        <li>Qualitative visualizations</li>
+        <li>Evaluation metrics</li>
+      </ul>
+
+      <h4>Purpose</h4>
+
+      <p>
+        Verify that the controller generalizes to Gibson environments using the
+        generated training dataset.
+      </p>
+
+      <h4>Status</h4>
+
+      <p>⏳ Evaluation pipeline under development.</p>
+
+    </div>
+
+  </div>
+</section>  
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
