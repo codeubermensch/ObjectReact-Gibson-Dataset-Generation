@@ -111,18 +111,7 @@
 
               <!-- Training -->
 
-              <span class="link-block">
-                <a href="PASTE_TRAINING_REPO_HERE"
-                   class="external-link button is-normal is-rounded is-dark">
 
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-
-                  <span>Training Pipeline</span>
-
-                </a>
-              </span>
 
               <!-- WandB -->
 
@@ -350,11 +339,6 @@ Produces the navigation trajectories that serve as the foundation for all subseq
 
 <p>✔ Completed successfully.</p>
 
-</div>
-
-</div>
-</section>
-
 <h4>Developer Notes</h4>
 
 <ul>
@@ -363,6 +347,13 @@ Produces the navigation trajectories that serve as the foundation for all subseq
 <li>Use this script when debugging trajectory generation.</li>
 </ul>
   
+</div>
+
+</div>
+
+</section>
+
+
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -452,19 +443,20 @@ Produces the navigation trajectories that serve as the foundation for all subseq
 
       <p>✔ Completed successfully for Gibson environments.</p>
 
+      <h4>Developer Notes</h4>
+
+      <ul>
+      <li>Main script: <code>create_traj_and_maps.py</code></li>
+      <li>Core implementation: <code>libs/mapper/map_topo.py</code></li>
+      <li>Feature association: <code>libs/matcher/lightglue.py</code></li>
+      <li>Use these files when debugging graph construction.</li>
+      </ul>
+      
     </div>
 
   </div>
 </section>  
 
-<h4>Developer Notes</h4>
-
-<ul>
-<li>Main script: <code>create_traj_and_maps.py</code></li>
-<li>Core implementation: <code>libs/mapper/map_topo.py</code></li>
-<li>Feature association: <code>libs/matcher/lightglue.py</code></li>
-<li>Use these files when debugging graph construction.</li>
-</ul>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -506,18 +498,19 @@ Produces the navigation trajectories that serve as the foundation for all subseq
 
       <p>✔ Completed successfully for Gibson environments.</p>
 
+      <h4>Developer Notes</h4>
+
+      <ul>
+      <li>Main script: <code>create_traj_and_maps.py</code></li>
+      <li>Depth integration: <code>dataloader/datasets_habitat.py</code></li>
+      <li>Scene loading and simulator interaction are implemented here.</li>
+      </ul>
+
     </div>
 
   </div>
 </section>  
 
-<h4>Developer Notes</h4>
-
-<ul>
-<li>Main script: <code>create_traj_and_maps.py</code></li>
-<li>Depth integration: <code>dataloader/datasets_habitat.py</code></li>
-<li>Scene loading and simulator interaction are implemented here.</li>
-</ul>
   
 <section class="section">
   <div class="container is-max-desktop">
@@ -558,18 +551,20 @@ Produces the navigation trajectories that serve as the foundation for all subseq
 
       <p>✔ Completed successfully for Gibson environments.</p>
 
+      <h4>Developer Notes</h4>
+
+      <ul>
+      <li>Main script: <code>convert_graphs_to_h5.py</code></li>
+      <li>Shortest-path computation and HDF5 generation are implemented here.</li>
+      </ul>
+
+
     </div>
 
   </div>
 </section>  
 
-<h4>Developer Notes</h4>
-
-<ul>
-<li>Main script: <code>convert_graphs_to_h5.py</code></li>
-<li>Shortest-path computation and HDF5 generation are implemented here.</li>
-</ul>
-
+  
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -605,18 +600,19 @@ Produces the navigation trajectories that serve as the foundation for all subseq
 
       <p>✔ Completed successfully.</p>
 
+      <h4>Developer Notes</h4>
+
+      <ul>
+      <li>Dataset split configuration.</li>
+      <li>Training configuration files.</li>
+      <li>Directory organization for ObjectReact.</li>
+      </ul>
+
+
     </div>
 
   </div>
 </section>
-
-<h4>Developer Notes</h4>
-
-<ul>
-<li>Dataset split configuration.</li>
-<li>Training configuration files.</li>
-<li>Directory organization for ObjectReact.</li>
-</ul>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -660,18 +656,19 @@ Produces the navigation trajectories that serve as the foundation for all subseq
 
       <p>✔ Successfully trained on the generated Gibson dataset.</p>
 
+      <h4>Developer Notes</h4>
+
+      <ul>
+      <li>Main script: <code>train.py</code></li>
+      <li>Main configuration: <code>object_react_gibson.yaml</code></li>
+      <li>Experiment tracking performed using Weights & Biases.</li>
+      </ul>
+
     </div>
 
   </div>
 </section>
 
-<h4>Developer Notes</h4>
-
-<ul>
-<li>Main script: <code>train.py</code></li>
-<li>Main configuration: <code>object_react_gibson.yaml</code></li>
-<li>Experiment tracking performed using Weights & Biases.</li>
-</ul>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -708,17 +705,18 @@ Produces the navigation trajectories that serve as the foundation for all subseq
 
       <p>⏳ Evaluation pipeline under development.</p>
 
+      <h4>Developer Notes</h4>
+
+      <ul>
+      <li>Main script: <code>main.py</code></li>
+      <li>Evaluation performed inside Habitat Simulator.</li>
+      </ul>
+
     </div>
 
   </div>
 </section>  
 
-<h4>Developer Notes</h4>
-
-<ul>
-<li>Main script: <code>main.py</code></li>
-<li>Evaluation performed inside Habitat Simulator.</li>
-</ul>
 
 <section class="section">
 <div class="container is-max-desktop">
