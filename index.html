@@ -42,47 +42,7 @@
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-
+  
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -352,6 +312,58 @@ Habitat Evaluation
 </section>
 
 <section class="section">
+<div class="container is-max-desktop">
+
+<h2 class="title is-3 has-text-centered">
+Stage 1: Trajectory Generation
+</h2>
+
+<div class="content has-text-justified">
+
+<h4>Objective</h4>
+
+<p>
+Generate navigation trajectories inside Gibson environments using Habitat Simulator while recording RGB observations, agent poses and trajectory metadata.
+</p>
+
+<h4>Main Script</h4>
+
+<ul>
+<li><code>create_gibson_dataset.py</code></li>
+</ul>
+
+<h4>Outputs</h4>
+
+<ul>
+<li>images/</li>
+<li>agent_states.npy</li>
+<li>traj_data.pkl</li>
+</ul>
+
+<h4>Purpose</h4>
+
+<p>
+Produces the navigation trajectories that serve as the foundation for all subsequent graph generation stages.
+</p>
+
+<h4>Status</h4>
+
+<p>✔ Completed successfully.</p>
+
+</div>
+
+</div>
+</section>
+
+<h4>Developer Notes</h4>
+
+<ul>
+<li>Main script: <code>create_gibson_dataset.py</code></li>
+<li>Trajectory sampling and image saving are implemented here.</li>
+<li>Use this script when debugging trajectory generation.</li>
+</ul>
+  
+<section class="section">
   <div class="container is-max-desktop">
 
     <h2 class="title is-3 has-text-centered">
@@ -445,6 +457,15 @@ Habitat Evaluation
   </div>
 </section>  
 
+<h4>Developer Notes</h4>
+
+<ul>
+<li>Main script: <code>create_traj_and_maps.py</code></li>
+<li>Core implementation: <code>libs/mapper/map_topo.py</code></li>
+<li>Feature association: <code>libs/matcher/lightglue.py</code></li>
+<li>Use these files when debugging graph construction.</li>
+</ul>
+
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -490,6 +511,14 @@ Habitat Evaluation
   </div>
 </section>  
 
+<h4>Developer Notes</h4>
+
+<ul>
+<li>Main script: <code>create_traj_and_maps.py</code></li>
+<li>Depth integration: <code>dataloader/datasets_habitat.py</code></li>
+<li>Scene loading and simulator interaction are implemented here.</li>
+</ul>
+  
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -534,6 +563,13 @@ Habitat Evaluation
   </div>
 </section>  
 
+<h4>Developer Notes</h4>
+
+<ul>
+<li>Main script: <code>convert_graphs_to_h5.py</code></li>
+<li>Shortest-path computation and HDF5 generation are implemented here.</li>
+</ul>
+
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -573,6 +609,14 @@ Habitat Evaluation
 
   </div>
 </section>
+
+<h4>Developer Notes</h4>
+
+<ul>
+<li>Dataset split configuration.</li>
+<li>Training configuration files.</li>
+<li>Directory organization for ObjectReact.</li>
+</ul>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -621,6 +665,14 @@ Habitat Evaluation
   </div>
 </section>
 
+<h4>Developer Notes</h4>
+
+<ul>
+<li>Main script: <code>train.py</code></li>
+<li>Main configuration: <code>object_react_gibson.yaml</code></li>
+<li>Experiment tracking performed using Weights & Biases.</li>
+</ul>
+
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -661,50 +713,120 @@ Habitat Evaluation
   </div>
 </section>  
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
-  </div>
+<h4>Developer Notes</h4>
+
+<ul>
+<li>Main script: <code>main.py</code></li>
+<li>Evaluation performed inside Habitat Simulator.</li>
+</ul>
+
+<section class="section">
+<div class="container is-max-desktop">
+
+<h2 class="title is-3 has-text-centered">
+Development Guide
+</h2>
+
+<div class="content">
+
+<table class="table is-fullwidth is-striped">
+
+<thead>
+
+<tr>
+
+<th>Task</th>
+
+<th>Main File</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Generate trajectories</td>
+
+<td><code>create_gibson_dataset.py</code></td>
+
+</tr>
+
+<tr>
+
+<td>Generate object graphs</td>
+
+<td><code>create_traj_and_maps.py</code></td>
+
+</tr>
+
+<tr>
+
+<td>Topological graph implementation</td>
+
+<td><code>libs/mapper/map_topo.py</code></td>
+
+</tr>
+
+<tr>
+
+<td>Topometric graph implementation</td>
+
+<td><code>dataloader/datasets_habitat.py</code></td>
+
+</tr>
+
+<tr>
+
+<td>Generate WayObject Costmaps</td>
+
+<td><code>convert_graphs_to_h5.py</code></td>
+
+</tr>
+
+<tr>
+
+<td>Train controller</td>
+
+<td><code>train.py</code></td>
+
+</tr>
+
+<tr>
+
+<td>Evaluate controller</td>
+
+<td><code>main.py</code></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
 </section>
-
-
+  
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
+      <p>
+        <b>Generating Gibson Training Data for ObjectReact</b><br>
+        Documentation developed during the RRC Internship under
+        <b>Dr. Sourav Garg</b>.
+      </p>
+
+      <p>
+        © 2026 Pullagura Maithresh Gokul Kumar
+      </p>
     </div>
   </div>
 </footer>
+
 
 </body>
 </html>
